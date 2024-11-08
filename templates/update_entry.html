@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Update Entry</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="type">Type</label>
+        <select class="form-control" id="type" name="type" required>
+            <option value="income" {% if entry[1] == 'income' %}selected{% endif %}>Income</option>
+            <option value="expense" {% if entry[1] == 'expense' %}selected{% endif %}>Expense</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" name="category" value="{{ entry[2] }}" required>
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount" name="amount" value="{{ entry[3] }}" required>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" value="{{ entry[4] }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Entry</button>
+</form>
+{% endblock %}
